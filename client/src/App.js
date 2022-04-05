@@ -1,10 +1,12 @@
 
 import './App.css';
 import {
-  BrowserRouter,
+  BrowserRouter as Router,
+  Switch,
   Route,
-  Routes,
-  } from "react-router-dom";
+  
+} from "react-router-dom";
+
 
 
 
@@ -26,31 +28,24 @@ function App() {
 
 
 
-    <BrowserRouter>
+    <Router>
 
 
 
-    <Routes>
+    <Switch>
+
+   
+    <Route exact path="/" component={LandingPage} />
+          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/register" component={RegisterPage} />
 
    
 
-    <Route exact path="/" element = {<LandingPage/>}/>
-
-
-
-
-
-    <Route exact path="/login" element = {<LoginPage/>}/>
-
-    <Route exact path="/register" element = {<RegisterPage/>}/>
+    </Switch>
 
    
 
-    </Routes>
-
-   
-
-    </BrowserRouter>
+    </Router>
 
    
 

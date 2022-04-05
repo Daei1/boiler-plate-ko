@@ -27,11 +27,16 @@ app.get('/', (req, res) => {
 app.post('/api/users/register', (req,res)=> {
  
   const user= new User(req.body);
-  console.log(req.body);
+  console.log(user);
   user.save((err,userInfo)=>{
-    if(err) return res.json({sucess:false, err})
-    return res.status(200).json({sucess:true})
+    if(err) return res.json({success:false, err})
+    return res.status(200).json({
+      success:true
+    
+    })
+    
   })
+  
 })
 
 app.post('/api/users/login', (req,res) => {
@@ -101,8 +106,8 @@ app.get('/api/users/logout',auth, (req,res)=>{
     {token: ""},
     (err,user) => {
     if(err) return res.json({success:false,err});
-    return res.status(200).send({
-      sucess:true
+    return res.status(200).json({
+      success:true
     })  
   })
 })
